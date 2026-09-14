@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="top">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -38,7 +38,7 @@
 						</div>
 					</a>
 					<span class="d-none d-sm-inline" style="font-size: 12px; color: #f8fafc;">
-						<i class="far fa-clock mr-1" style="color: #6ee7b7;"></i><span id="header-live-date"></span>
+						<i class="far fa-clock mr-1" style="color: #6ee7b7;"></i>Website Resmi Pemerintah Desa Melung
 					</span>
 				</div>
 			</div>
@@ -203,34 +203,31 @@
 							<div class="mt-4 pt-3 border-top" style="border-color: var(--border-ui) !important;"></div>
 						</div>
 
-						<!-- Form Komentar -->
+						<!-- Form Komentar Statis -->
 						<div class="mt-4 p-4 border" style="background: var(--bg-card); border-radius: 24px; border-color: var(--border-ui) !important;">
 							<h4 class="font-weight-bold mb-3" style="color: var(--text-main); font-size: 1.25rem;">
 								<i class="fas fa-comments mr-2" style="color: var(--accent-theme);"></i>Tulis Komentar
 							</h4>
-							<div class="form-group mb-3">
-								<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Komentar Anda <span class="text-danger">*</span></label>
-								<textarea class="form-control" id="comment" rows="3" placeholder="Tulis tanggapan atau komentar..." style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);"></textarea>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Nama Pengirim <span class="text-danger">*</span></label>
-									<input class="form-control" id="nama_pengirim" type="text" placeholder="Nama Anda" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+							<form action="https://melung.desa.id/komentar" method="POST">
+								<input type="hidden" name="artikel_id" value="2747">
+								<div class="form-group mb-3">
+									<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Komentar Anda <span class="text-danger">*</span></label>
+									<textarea class="form-control" name="konten" rows="3" placeholder="Tulis tanggapan atau komentar..." style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required></textarea>
 								</div>
-								<div class="col-md-6 mb-3">
-									<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">No. Telepon / WA <span class="text-danger">*</span></label>
-									<input class="form-control" id="no_telepon" type="tel" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Hanya Angka" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Nama Pengirim <span class="text-danger">*</span></label>
+										<input class="form-control" name="nama" type="text" placeholder="Nama Anda" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+									</div>
+									<div class="col-md-6 mb-3">
+										<label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">No. Telepon / WA <span class="text-danger">*</span></label>
+										<input class="form-control" name="no_hp" type="tel" pattern="[0-9]*" placeholder="Hanya Angka" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+									</div>
 								</div>
-								<input type="text" id="website_url" style="display:none !important;" tabindex="-1">
-								<div class="col-12 mb-3">
-									<script src="https://www.google.com/recaptcha/api.js?" async defer></script>
-									<div data-sitekey="6LcpkzEqAAAAAIi5N5PVuwkJy7gapza_JpAUVF11" class="g-recaptcha"></div>
-								</div>
-							</div>
-							<button class="btn font-weight-bold text-white px-4 py-2" style="background: linear-gradient(135deg, #059669 0%, #0d9488 100%); border-radius: 12px; border: none;" onclick="addComment()">
-								<i class="fas fa-paper-plane mr-1"></i> Kirim Komentar
-							</button>
-							<div class="mt-4" id="comment-list"></div>
+								<button type="submit" class="btn font-weight-bold text-white px-4 py-2" style="background: linear-gradient(135deg, #059669 0%, #0d9488 100%); border-radius: 12px; border: none;">
+									<i class="fas fa-paper-plane mr-1"></i> Kirim Komentar
+								</button>
+							</form>
 						</div>
 					</div>
 
@@ -335,83 +332,9 @@
 		</footer>
 	</div>
 
-	<button class="scroll-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></button>
-
-	<!-- Scripts Utama -->
-	<script src="https://melung.desa.id/themes/js/jquery-3.6.0.min.js"></script>
-	<script src="https://melung.desa.id/themes/js/bootstrap.4.5.3.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-	<script>
-		const articleId = 2747;
-
-		function updateClock() {
-			const d = new Date(),
-				  days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-				  months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agus','Sep','Okt','Nov','Des'];
-			$('#header-live-date').text(`${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()} • ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')} WIB`);
-		}
-		setInterval(updateClock, 1000); 
-		updateClock();
-
-		$(window).on('scroll', () => $('.main-header').toggleClass('header-scrolled', $(window).scrollTop() > 25));
-
-		$('.main-menu .navigation li.dropdown > a').on('click', function (e) {
-			const ul = $(this).siblings('ul');
-			if (ul.length && (!$(this).attr('href') || $(this).attr('href') === '#')) {
-				e.preventDefault();
-				$(this).parent().toggleClass('open').siblings().removeClass('open');
-			}
-		});
-
-		function loadComments() {
-			$.get("https://melung.desa.id/artikel/komentar", { artikel_id: articleId }, data => {
-				$('#comment-list').html(data && data.length ? data.map(renderComment).join('') : '<p class="text-muted text-center my-3">Belum ada komentar.</p>');
-			});
-		}
-
-		function renderComment(c) {
-			const date = c.created_at ? new Date(c.created_at).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'}) : '';
-			return `
-			<div class="comment-card" id="comment-${c.id}">
-				<div class="d-flex align-items-center justify-content-between">
-					<div class="d-flex align-items-center" style="gap: 10px;">
-						<div class="comment-avatar">${(c.nama || 'U').charAt(0).toUpperCase()}</div>
-						<div><div class="font-weight-bold">${c.nama || 'Pengunjung'}</div><small class="text-muted">${date}</small></div>
-					</div>
-					<button class="btn-reply-custom" onclick="$('#reply-box-${c.id}').toggleClass('d-none')"><i class="fas fa-reply"></i> Balas</button>
-				</div>
-				<div class="my-2">${c.konten || ''}</div>
-				<div class="reply-form-container d-none" id="reply-box-${c.id}">
-					<textarea class="form-control mb-2" id="reply-${c.id}" rows="2" placeholder="Balasan..."></textarea>
-					<div class="text-right">
-						<button class="btn btn-sm btn-light" onclick="$('#reply-box-${c.id}').addClass('d-none')">Batal</button>
-						<button class="btn btn-sm btn-primary" style="background: var(--accent-theme); border-color: var(--accent-theme);" onclick="addComment(${c.id})">Kirim</button>
-					</div>
-				</div>
-				<div class="reply-thread-box">${(c.replies || []).map(renderComment).join('')}</div>
-			</div>`;
-		}
-
-		function addComment(parent_id = null) {
-			const captcha = (typeof grecaptcha !== 'undefined') ? grecaptcha.getResponse() : '';
-			if (!captcha) return alert('Centang reCAPTCHA dahulu.');
-
-			$.post("https://melung.desa.id/komentar", {
-				artikel_id: articleId, parent_id,
-				nama: parent_id ? $('#reply-nama-' + parent_id).val() : $('#nama_pengirim').val(),
-				no_hp: parent_id ? $('#reply-no_telepon-' + parent_id).val() : $('#no_telepon').val(),
-				konten: parent_id ? $('#reply-' + parent_id).val() : $('#comment').val(),
-				'g-recaptcha-response': captcha,
-				_token: "FHIhUmGsDGBWuAEeQYW41MaM9e4copgjzel7LqeZ"
-			}, () => {
-				loadComments();
-				if (!parent_id) $('#comment, #nama_pengirim, #no_telepon').val('');
-				if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
-			}).fail(() => alert('Gagal mengirim komentar.'));
-		}
-
-		$(document).ready(loadComments);
-	</script>
+	<!-- Tombol Kembali ke Atas Menggunakan Anchor HTML Murni -->
+	<a href="#top" class="scroll-top" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+		<span class="fa fa-angle-up"></span>
+	</a>
 </body>
 </html>
