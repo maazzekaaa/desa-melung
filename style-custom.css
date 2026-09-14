@@ -46,7 +46,7 @@ textarea {
   padding: 0 2rem !important;
 }
 
-/* Header & Nav */
+/* Header & Nav (Statis) */
 .main-header {
   position: sticky !important;
   top: 0;
@@ -54,6 +54,8 @@ textarea {
   z-index: 99999;
   background: var(--bg-nav) !important;
   box-shadow: 0 4px 16px -2px rgba(27, 99, 51, 0.12) !important;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 .header-top {
@@ -65,12 +67,6 @@ textarea {
   background: var(--bg-nav) !important;
   border-bottom: 1px solid var(--border-ui);
   padding: 4px 0 !important;
-}
-
-/* Menu Navigasi - Bersih total dan tidak bisa disentuh */
-.main-menu {
-  pointer-events: none !important;
-  user-select: none;
 }
 
 .main-menu .navigation {
@@ -108,19 +104,20 @@ textarea {
   color: var(--text-muted);
 }
 
-/* Dropdown dimatikan total */
 .sub-menu-dropdown,
 .sub-sub-menu-dropdown {
   display: none !important;
 }
 
-/* Hero Banner & Content */
+/* Hero Banner & Tombol Kembali (Semua Statis) */
 .hero-page-banner {
   background: var(--hero-gradient);
   padding: 70px 0 100px;
   width: 100%;
   position: relative;
   overflow: hidden;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 .hero-title-wrapper {
@@ -128,6 +125,24 @@ textarea {
   padding-left: 24px;
 }
 
+/* Tombol kembali berpenampilan identik tapi dinonaktifkan total */
+.btn-back-landing {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  background: var(--bg-card);
+  color: var(--accent-theme) !important;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(27, 99, 51, 0.18);
+  pointer-events: none !important;
+  user-select: none;
+  cursor: default !important;
+}
+
+/* Article Card */
 .article-main-card {
   background: var(--bg-card);
   border-radius: 24px;
@@ -137,6 +152,8 @@ textarea {
   margin-top: -50px;
   position: relative;
   z-index: 3;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 .article-body-content {
@@ -157,13 +174,27 @@ textarea {
   margin-bottom: 1.35rem;
 }
 
-/* Sidebar */
+/* Form Komentar Statis */
+.form-static-block {
+  pointer-events: none !important;
+  user-select: none;
+}
+
+.form-static-block input,
+.form-static-block textarea,
+.form-static-block button {
+  cursor: default !important;
+}
+
+/* Sidebar Widget Statis */
 .sidebar-widget-card {
   background: var(--bg-card);
   border-radius: 20px;
   border: 1px solid var(--border-ui);
   padding: 28px;
   margin-bottom: 24px;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 .sidebar-widget-title {
@@ -194,13 +225,7 @@ textarea {
   background: var(--input-bg);
   border: 1px solid var(--border-ui);
   margin-bottom: 12px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-}
-
-.recent-news-item:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-gold);
+  cursor: default !important;
 }
 
 .recent-news-img {
@@ -211,21 +236,7 @@ textarea {
   flex-shrink: 0;
 }
 
-.btn-back-landing {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 26px;
-  background: var(--bg-card);
-  color: var(--accent-theme) !important;
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(27, 99, 51, 0.18);
-  text-decoration: none !important;
-}
-
-/* Scroll Top */
+/* Scroll Top Statis */
 .scroll-top {
   position: fixed;
   bottom: 25px;
@@ -237,20 +248,22 @@ textarea {
   border-radius: 50%;
   z-index: 999;
   box-shadow: 0 4px 12px rgba(27, 99, 51, 0.35);
-  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none !important;
+  user-select: none;
+  cursor: default !important;
 }
 
-.scroll-top:hover {
-  color: #ffffff;
-  transform: translateY(-3px);
-}
-
-/* Footer */
+/* Footer Statis */
 .modern-footer-section {
   background: var(--footer-gradient);
   color: #ffffff;
   padding-top: 60px;
   width: 100%;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 .modern-footer-title {

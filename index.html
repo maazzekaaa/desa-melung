@@ -24,13 +24,13 @@
         <header class="main-header shadow-sm">
             <div class="header-top py-2 text-white">
                 <div class="container-fluid d-flex align-items-center justify-content-between">
-                    <a href="https://melung.desa.id" class="brand-logo text-decoration-none d-flex align-items-center py-1">
+                    <div class="brand-logo text-decoration-none d-flex align-items-center py-1">
                         <img src="https://melung.desa.id/themes/images/logo-bms.png" alt="Logo Melung" class="mr-3 flex-shrink-0" style="width: 42px; height: 42px; object-fit: contain;">
                         <div class="d-flex flex-column" style="line-height: 1.25;">
                             <span class="text-uppercase" style="font-size: 12.5px; font-weight: 500; color: #fef08a;">Sistem Informasi Desa</span>
                             <span class="header-brand-name" style="font-size: 18.5px; font-weight: 600; color: #fff;">Melung</span>
                         </div>
-                    </a>
+                    </div>
                     <span class="d-none d-sm-inline" style="font-size: 12px; color: #f8fafc;">
                         <i class="far fa-clock mr-1 text-warning"></i>Senin, 14 Sep 2026 | 13.10 WIB
                     </span>
@@ -77,8 +77,9 @@
                             <p class="text-white-50 m-0" style="font-size: 15px;">Website Resmi Desa Melung</p>
                         </div>
                     </div>
+                    <!-- Tombol Kembali dibuat Statis (Bukan Link) -->
                     <div class="col-lg-3 text-lg-right mt-3 mt-lg-0">
-                        <a href="https://melung.desa.id" class="btn-back-landing"><i class="fas fa-arrow-left"></i> Kembali</a>
+                        <span class="btn-back-landing"><i class="fas fa-arrow-left"></i> Kembali</span>
                     </div>
                 </div>
             </div>
@@ -88,6 +89,7 @@
         <div style="background: var(--bg-body); padding-bottom: 80px; min-height: 70vh;">
             <div class="container-fluid">
                 <div class="row">
+                    <!-- Article Body -->
                     <div class="col-lg-8">
                         <div class="article-main-card">
                             <div class="article-body-content">
@@ -110,64 +112,65 @@
                             <div class="mt-4 pt-3 border-top" style="border-color: var(--border-ui) !important;"></div>
                         </div>
 
-                        <div class="mt-4 p-4 border" style="background: var(--bg-card); border-radius: 24px; border-color: var(--border-ui) !important;">
+                        <!-- Comment Form (Statis) -->
+                        <div class="mt-4 p-4 border form-static-block" style="background: var(--bg-card); border-radius: 24px; border-color: var(--border-ui) !important;">
                             <h4 class="font-weight-bold mb-3" style="color: var(--text-main); font-size: 1.25rem;">
                                 <i class="fas fa-comments mr-2" style="color: var(--accent-theme);"></i>Tulis Komentar
                             </h4>
-                            <form action="https://melung.desa.id/komentar" method="POST">
-                                <input type="hidden" name="artikel_id" value="2747">
+                            <div>
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Komentar Anda <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="konten" rows="3" placeholder="Tulis tanggapan atau komentar..." style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Tulis tanggapan atau komentar..." style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" readonly></textarea>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">Nama Pengirim <span class="text-danger">*</span></label>
-                                        <input class="form-control" name="nama" type="text" placeholder="Nama Anda" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+                                        <input class="form-control" type="text" placeholder="Nama Anda" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="font-weight-bold" style="color: var(--text-muted); font-size: 13px;">No. Telepon / WA <span class="text-danger">*</span></label>
-                                        <input class="form-control" name="no_hp" type="tel" pattern="[0-9]*" placeholder="Hanya Angka" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" required>
+                                        <input class="form-control" type="tel" placeholder="Hanya Angka" style="border-radius: 12px; background: var(--input-bg); border-color: var(--border-input);" readonly>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn font-weight-bold text-white px-4 py-2" style="background: linear-gradient(135deg, #1b6333 0%, #ca8a04 100%); border-radius: 12px; border: none;">
+                                <button type="button" class="btn font-weight-bold text-white px-4 py-2" style="background: linear-gradient(135deg, #1b6333 0%, #ca8a04 100%); border-radius: 12px; border: none;">
                                     <i class="fas fa-paper-plane mr-1"></i> Kirim Komentar
                                 </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Sidebar (Statis) -->
                     <div class="col-lg-4 col-md-12 mt-4 mt-lg-0">
                         <div class="sidebar-widget-card" style="margin-top: -50px; position: relative; z-index: 3;">
                             <h4 class="sidebar-widget-title">Berita Terbaru</h4>
                             <div class="news-widget-wrap">
-                                <a href="https://melung.desa.id/artikel-detail/menggores-kisah-di-desa-melung" class="recent-news-item">
+                                <div class="recent-news-item">
                                     <img class="recent-news-img" src="https://melung.desa.id/themes/images/logo-bms.png" alt="Berita">
                                     <div>
                                         <h6 class="mb-1 font-weight-bold" style="color: var(--text-main); font-size: 13.5px; line-height: 1.35;">Menggores Kisah di Desa Melung</h6>
                                         <span style="color: var(--text-muted); font-size: 11.5px;"><i class="far fa-calendar-alt mr-1" style="color: var(--accent-theme);"></i> 08 Dec 2013</span>
                                     </div>
-                                </a>
-                                <a href="https://melung.desa.id/artikel-detail/paud-terpadu-satria-jaya-gelar-peringatan-maulid-nabi-muhammad-saw-1441-h" class="recent-news-item">
+                                </div>
+                                <div class="recent-news-item">
                                     <img class="recent-news-img" src="https://melung.desa.id/themes/images/logo-bms.png" alt="Berita">
                                     <div>
                                         <h6 class="mb-1 font-weight-bold" style="color: var(--text-main); font-size: 13.5px; line-height: 1.35;">PAUD Terpadu Gelar Maulid Nabi</h6>
                                         <span style="color: var(--text-muted); font-size: 11.5px;"><i class="far fa-calendar-alt mr-1" style="color: var(--accent-theme);"></i> 14 Nov 2019</span>
                                     </div>
-                                </a>
+                                </div>
                             </div>
 
                             <div class="mt-4 pt-3 border-top" style="border-color: var(--border-ui) !important;">
                                 <h4 class="sidebar-widget-title">Kategori Artikel</h4>
                                 <div class="list-group list-group-flush">
-                                    <a href="https://melung.desa.id/artikel/kategori/berita-desa" class="list-group-item d-flex justify-content-between px-0 py-2 border-0 bg-transparent">
-                                        <span style="color: var(--text-main);"><i class="fas fa-folder-open mr-2" style="color: var(--accent-theme);"></i>BERITA DESA</span>
+                                    <div class="list-group-item d-flex justify-content-between px-0 py-2 border-0 bg-transparent">
+                                        <span style="color: var(--text-main);"><i class="fas fa-folder mr-2" style="color: var(--accent-theme);"></i>BERITA DESA</span>
                                         <span class="badge badge-light px-2 py-1 font-weight-bold" style="background: var(--input-bg); color: var(--accent-theme);">17</span>
-                                    </a>
-                                    <a href="https://melung.desa.id/artikel/kategori/kegiatan-desa" class="list-group-item d-flex justify-content-between px-0 py-2 border-0 bg-transparent">
-                                        <span style="color: var(--text-main);"><i class="fas fa-folder-open mr-2" style="color: var(--accent-theme);"></i>KEGIATAN DESA</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between px-0 py-2 border-0 bg-transparent">
+                                        <span style="color: var(--text-main);"><i class="fas fa-folder mr-2" style="color: var(--accent-theme);"></i>KEGIATAN DESA</span>
                                         <span class="badge badge-light px-2 py-1 font-weight-bold" style="background: var(--input-bg); color: var(--accent-theme);">3</span>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +179,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer (Statis) -->
         <footer class="modern-footer-section">
             <div class="container-fluid position-relative z-2">
                 <div class="row justify-content-between pb-3">
@@ -224,7 +227,7 @@
                             <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <div class="font-weight-bold" style="font-size: 12px; color: #fef08a;">EMAIL</div>
-                                <a href="mailto:melung@gmail.com" class="text-white">melung@gmail.com</a>
+                                <span class="text-white">melung@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -237,9 +240,9 @@
         </footer>
     </div>
 
-    <!-- Scroll to Top (Pure CSS anchor) -->
-    <a href="#top" class="scroll-top" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+    <!-- Scroll Top Icon (Statis) -->
+    <div class="scroll-top">
         <span class="fa fa-angle-up"></span>
-    </a>
+    </div>
 </body>
 </html>
