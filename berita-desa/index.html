@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id" id="top">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kabar & Berita Terkini - Desa Melung</title>
+    <link rel="shortcut icon" href="../assets/images/logo-melung.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://melung.desa.id/themes/css/bootstrap.4.5.3.min.css">
+    <link rel="stylesheet" href="style-custom.css">
+</head>
+<body class="home-two">
+    <div class="page-wrapper w-100">
+        <!-- Header -->
+        <header class="main-header shadow-sm">
+            <div class="header-top py-1 text-white">
+                <div class="container-fluid d-flex align-items-center justify-content-between">
+                    <a href="./index.html" class="brand-logo text-decoration-none d-flex align-items-center py-1">
+                        <img src="../assets/images/logo-melung.png" alt="Logo Melung" class="mr-2 flex-shrink-0" style="width: 36px; height: 36px; object-fit: contain;">
+                        <div class="d-flex flex-column" style="line-height: 1.2;">
+                            <span class="text-uppercase" style="font-size: 10.5px; font-weight: 500; color: #b7e5ba;">Sistem Informasi Desa</span>
+                            <span class="header-brand-name" style="font-size: 17px; font-weight: 600; color: #fff;">Melung</span>
+                        </div>
+                    </a>
+                    <span class="header-realtime-info d-none d-sm-inline">
+                        <i class="far fa-clock mr-1"></i><span id="realtime-clock">Memuat waktu...</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigasi Utama (2 Baris Tanpa Ikon Menu) -->
+            <div class="header-nav-bar">
+                <div class="container-fluid">
+                    <nav class="main-menu">
+                        <ul class="navigation">
+                            <li><a href="../sejarah-desa/" class="nav-static-item">Home</a></li>
+
+                            <!-- Profil -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Profil <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Tentang Kami</a>
+                                    <a href="#" class="popup-link">Visi Dan Misi</a>
+                                    <a href="../sejarah-desa/" class="popup-link">Sejarah Desa</a>
+                                    <a href="https://melung.desa.id/artikel-detail/profil-desa-melung" class="popup-link">Letak Geografis Desa</a>
+                                    <a href="#" class="popup-link">Peta Desa</a>
+                                    <a href="#" class="popup-link">Peta Pertanahan</a>
+                                    <a href="https://melung.desa.id/artikel-detail/tentang-desa-melung" class="popup-link">Lambang, Motto, Dan Slogan Desa</a>
+                                    <a href="#" class="popup-link">Prestasi Desa</a>
+                                </div>
+                            </li>
+
+                            <!-- Statistik -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Statistik <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="https://melung.desa.id/artikel-detail/statistik" class="popup-link">Statistik Penduduk</a>
+                                    <a href="#" class="popup-link">Statistik Pendidikan</a>
+                                    <a href="#" class="popup-link">Statistik Pekerjaan</a>
+                                    <a href="#" class="popup-link">Statistik Agama</a>
+                                </div>
+                            </li>
+
+                            <!-- Potensi Desa -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Potensi Desa <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Potensi Perkebunan Kopi</a>
+                                    <a href="#" class="popup-link">Pertanian & Peternakan</a>
+                                    <a href="#" class="popup-link">Sumber Daya Air & PLTA</a>
+                                    <a href="#" class="popup-link">UMKM Olahan Warga</a>
+                                </div>
+                            </li>
+
+                            <!-- Kelembagaan -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Kelembagaan <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="https://melung.desa.id/artikel-detail/pemerintahan-desa" class="popup-link">Pemerintah Desa</a>
+                                    <a href="https://melung.desa.id/artikel-detail/bpd" class="popup-link">BPD Desa Melung</a>
+                                    <a href="https://melung.desa.id/artikel-detail/lembaga-kemasyarakatan-desa" class="popup-link">LPMD</a>
+                                    <a href="#" class="popup-link">Karang Taruna</a>
+                                </div>
+                            </li>
+
+                            <li><a href="https://melung.desa.id/artikel-detail/transparansi" class="nav-static-item">Transparansi</a></li>
+
+                            <!-- Produk Hukum -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Produk Hukum <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Peraturan Desa (Perdes)</a>
+                                    <a href="#" class="popup-link">Keputusan Kepala Desa</a>
+                                </div>
+                            </li>
+
+                            <!-- Desa Wisata -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Desa Wisata <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Wisata Pagubugan Melung</a>
+                                    <a href="#" class="popup-link">Ekowisata & Agro Camping</a>
+                                </div>
+                            </li>
+
+                            <!-- Bumdes -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Bumdes <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Profil BUMDes Gumregah</a>
+                                    <a href="#" class="popup-link">Unit Usaha BUMDes</a>
+                                </div>
+                            </li>
+
+                            <!-- PPID -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Ppid <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Informasi Publik Berkala</a>
+                                    <a href="#" class="popup-link">Permohonan Informasi</a>
+                                </div>
+                            </li>
+
+                            <!-- Kabar Desa (Halaman Aktif) -->
+                            <li><a href="./index.html" class="nav-static-item active">Kabar Desa</a></li>
+
+                            <!-- Pelayanan -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Pelayanan <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="https://melung.desa.id/artikel-detail/wujudkan-tertib-administrasi-pemdes-melung-rilis-daftar-lengkap-syarat-pelayanan-publik" class="popup-link">Syarat Pelayanan</a>
+                                    <a href="#" class="popup-link">Layanan Mandiri Online</a>
+                                </div>
+                            </li>
+
+                            <li><a href="#" class="nav-static-item">Festival Desa</a></li>
+                            <li><a href="#" class="nav-static-item">Kontak Kami</a></li>
+
+                            <!-- Desa Anti Korupsi -->
+                            <li class="nav-dropdown-item">
+                                <a href="javascript:void(0)" class="nav-static-item">Desa Anti Korupsi <i class="fas fa-chevron-down nav-chevron"></i></a>
+                                <div class="dropdown-popup">
+                                    <a href="#" class="popup-link">Indikator Anti Korupsi</a>
+                                    <a href="#" class="popup-link">Kanal Pengaduan WBS</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Banner -->
+        <section class="hero-page-banner">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-9">
+                        <div class="hero-title-wrapper">
+                            <div class="d-flex align-items-center flex-wrap mb-2" style="gap: 8px;">
+                                <span class="badge badge-success px-2.5 py-1 font-weight-bold" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 11px;">
+                                    <i class="fas fa-newspaper mr-1"></i> Kabar Terkini
+                                </span>
+                                <span class="text-white-50" style="font-size: 12px;"><i class="far fa-calendar-alt mr-1" style="color: #b7e5ba;"></i> Pembaruan Berkala</span>
+                            </div>
+                            <h1 class="text-white font-weight-bold" style="font-size: clamp(22px, 3.5vw, 36px);">Kabar & Berita Terkini</h1>
+                            <p class="text-white-50 m-0" style="font-size: 13.5px;">Informasi resmi, perkembangan pembangunan, dan kabar terbaru seputar kegiatan masyarakat Desa Melung.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-lg-right mt-3 mt-lg-0">
+                        <a href="../sejarah-desa/" class="btn-back-landing">
+                            <i class="fas fa-arrow-left mr-1"></i> Ke Sejarah Desa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div style="background: var(--bg-body); padding-bottom: 80px; min-height: 70vh;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="article-main-card">
+                            <div class="news-header">
+                                <div class="news-header-left">
+                                    <div class="title-row">
+                                        <span class="news-icon-square"><i class="fas fa-table-cells-large"></i></span>
+                                        <h3 class="section-title">Seluruh Berita Desa</h3>
+                                    </div>
+                                    <p class="section-subtitle">Publikasi dan berita resmi yang dirilis Pemerintah Desa Melung</p>
+                                </div>
+                                <div class="news-header-right">
+                                    <span class="badge-total">Total 69 Berita</span>
+                                </div>
+                            </div>
+
+                            <div class="news-grid" id="newsGrid">
+                                <!-- Render via JS -->
+                            </div>
+
+                            <div class="pagination-bar">
+                                <a href="#" class="page-link prev"><i class="fas fa-chevron-left"></i></a>
+                                <a href="#" class="page-link active">1</a>
+                                <a href="#" class="page-link">2</a>
+                                <a href="#" class="page-link">3</a>
+                                <a href="#" class="page-link">4</a>
+                                <a href="#" class="page-link">5</a>
+                                <span class="page-dots">...</span>
+                                <a href="#" class="page-link">52</a>
+                                <a href="#" class="page-link next"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="modern-footer-section">
+            <div class="container-fluid position-relative z-2">
+                <div class="row justify-content-between pb-3">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="d-flex align-items-center mb-3" style="gap: 12px;">
+                            <div class="p-2 rounded-circle bg-white d-inline-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                <img src="../assets/images/logo-melung.png" alt="Logo Melung" style="height: 30px; width: 30px; object-fit: contain;">
+                            </div>
+                            <div>
+                                <h5 class="font-weight-bold text-white mb-0" style="font-size: 1.05rem;">Desa Melung</h5>
+                                <small style="color: #b7e5ba; font-weight: 600; font-size: 11px;">Kabupaten Banyumas</small>
+                            </div>
+                        </div>
+                        <p style="font-size: 12.8px; color: rgba(255,255,255,0.85); line-height: 1.6;">Website resmi Desa Melung, Kabupaten Banyumas. Menyajikan layanan publik mandiri, transparansi anggaran, serta informasi perkembangan wilayah secara akurat dan terbuka.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <h4 class="modern-footer-title" style="font-size: 1.05rem;">Statistik Pengunjung</h4>
+                        <div class="d-flex flex-column" style="gap: 9px;">
+                            <div class="footer-counter-card" style="font-size: 12px; padding: 9px 16px;">
+                                <div><i class="fas fa-user-clock mr-2"></i> Hari ini</div>
+                                <span class="font-weight-bold">150</span>
+                            </div>
+                            <div class="footer-counter-card" style="font-size: 12px; padding: 9px 16px;">
+                                <div><i class="fas fa-calendar-alt mr-2"></i> Bulan ini</div>
+                                <span class="font-weight-bold">3.025</span>
+                            </div>
+                            <div class="footer-counter-card" style="font-size: 12px; padding: 9px 16px;">
+                                <div><i class="fas fa-chart-line mr-2"></i> Total Pengunjung</div>
+                                <span class="font-weight-bold" style="color: #b7e5ba;">77.926</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <h4 class="modern-footer-title" style="font-size: 1.05rem;">Kontak Desa</h4>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <div class="font-weight-bold" style="font-size: 10.5px;">ALAMAT</div>
+                                <div style="font-size: 12.5px;">Jalan Raya No.50-51, Melung, Kedungbanteng</div>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="font-weight-bold" style="font-size: 10.5px;">EMAIL</div>
+                                <span class="text-white" style="font-size: 12.5px;">melung@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center py-3 border-top" style="border-color: rgba(255,255,255,0.15) !important;">
+                    <p class="mb-0" style="font-size: 12px; color: rgba(255,255,255,0.85);">&copy; 2026 Pemerintah Desa Melung. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <a href="#top" id="backToTop" class="scroll-top">
+        <span class="fa fa-angle-up"></span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
