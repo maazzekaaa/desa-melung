@@ -15,21 +15,27 @@ const articles = [
   },
   {
     id: 2,
-    title: "Peringatan HUT RI Ke-81 di Desa Melung dengan Partisipasi Beragam",
+    title: "Ini kata Menkeu Baru Soal Nasib Kanal Aduan \"Lapor Pak Purbaya\"",
     badge: "BERITA DESA",
-    date: "18 Aug 2026",
+    date: "20 Sep 2026",
     views: 62,
-    imageSource: "../assets/images/ipsal.png",
-    content: `<p>Peringatan HUT RI ke-81 di Desa Melung berlangsung meriah dengan partisipasi antusias dari seluruh elemen masyarakat desa.</p>`
+    imageSource: "../assets/images/pak-pur.png",
+    content: `<p>Usai Purbaya Yudhi Sadewa diberhentikan dari jabatannya dan digantikan oleh Suahasil Nazara, publik mulai mempertanyakan nasib kanal aduan “Lapor Pak Purbaya” yang selama ini menjadi wadah masyarakat menyampaikan keluhan dan persoalan terkait bea cukai dan pajak. Menteri Keuangan Suahasil Nazara merespons dan mengatakan kanal pengaduan di lingkungan Kementerian Keuangan (Kemenkeu) tetap dibuka bagi masyarakat, termasuk untuk laporan terkait perpajakan serta kepabeanan dan cukai. "Masih bisa lapor gak Pak ke kementerian keuangan? Bisa," 
+    ujar Suahasil dalam konferensi pers APBN KiTa di kantor Kementerian Keuangan, Jakarta Pusat, Jumat (18/9/2026).</p>`
   },
   {
     id: 3,
-    title: "Wujudkan Tertib Administrasi, Pemdes Melung Rilis Daftar Lengkap Syarat Pelayanan",
+    title: "Jelang 2 Tahun Menjabat, Prabowo Percya Diri Banyak yang Sudah Dicapai",
     badge: "BERITA DESA",
-    date: "07 Jul 2026",
+    date: "21 Sep 2026",
     views: 188,
-    imageSource: "../assets/images/ipsal.png",
-    content: `<p>Pemerintah Desa Melung merilis daftar lengkap persyaratan pelayanan publik guna memudahkan warga dalam mengurus dokumen kependudukan.</p>`
+    imageSource: "../assets/images/wowo-pidato.png",
+    content: `<p>Presiden RI Prabowo Subianto mengaku semakin percaya diri menghadap rakyat Indonesia dalam berbagai kegiatan menjelang genap dua tahun pemerintahannya. 
+
+Prabowo mengatakan, rasa percaya diri itu muncul karena pemerintahannya telah menunjukkan sejumlah capaian yang dinilai nyata bagi bangsa dan rakyat Indonesia. 
+
+“Saya sekarang berdiri di depan rakyat Indonesia saya sekarang tambah percaya diri. Kenapa saya percaya diri? Karena belum 2 tahun saya menjalankan mandat dari rakyat, belum 2 tahun, kurang berapa minggu lagi ya? Saya kira kurang, kurang sebulan lagi persis 2 tahun. Saya percaya diri karena sekarang kita buktikan kita bukan pemimpin yang omon-omon saja!" 
+ujar Prabowo saat berpidato dalam acara Resepsi Kesyukuran 100 Tahun Pondok Modern Darussalam Gontor, Ponorogo, Jawa Timur, Sabtu (19/9/2026).</p>`
   },
   {
     id: 4,
@@ -60,6 +66,7 @@ const articles = [
   }
 ];
 
+// --- 1. RENDERING KARTU BERITA ---
 const newsGrid = document.getElementById("newsGrid");
 
 function renderCards(data) {
@@ -99,6 +106,7 @@ function renderCards(data) {
   });
 }
 
+// --- 2. POP-UP MODAL PRESI TEPAT DI TENGAH ---
 function openNewsModal(articleId) {
   const article = articles.find(a => a.id === articleId);
   if (!article) return;
@@ -139,14 +147,12 @@ function openNewsModal(articleId) {
     <div class="article-modal-container">
       <button class="modal-close-btn" onclick="closeNewsModal()">&times;</button>
       
-      <div class="modal-article-header">
-        <span class="badge px-2.5 py-1" style="background: #166b4c; color: #ffffff; font-size: 11px; font-weight: 700; border-radius: 4px;">${article.badge}</span>
-        <h2 class="modal-article-title">${article.title}</h2>
-        <div class="modal-meta-row">
-          <span><i class="far fa-calendar-alt mr-1"></i> ${article.date}</span>
-          <span><i class="far fa-eye mr-1"></i> ${article.views} Dilihat</span>
-          <span><i class="far fa-user mr-1"></i> Admin Desa</span>
-        </div>
+      <span class="modal-article-badge">${article.badge}</span>
+      <h3 class="modal-article-title">${article.title}</h3>
+      <div class="modal-meta-row">
+        <span><i class="far fa-calendar-alt mr-1"></i> ${article.date}</span>
+        <span><i class="far fa-eye mr-1"></i> ${article.views} Dilihat</span>
+        <span><i class="far fa-user mr-1"></i> Admin Desa</span>
       </div>
 
       ${mediaHeaderHTML}
@@ -159,6 +165,7 @@ function openNewsModal(articleId) {
 
   setTimeout(() => {
     modalBackdrop.classList.add('is-open');
+    document.body.classList.add('modal-open'); // Kunci scroll layar belakang
   }, 10);
 
   modalBackdrop.addEventListener('click', function(e) {
@@ -170,9 +177,11 @@ function closeNewsModal() {
   const modalBackdrop = document.getElementById('articleModal');
   if (modalBackdrop) {
     modalBackdrop.classList.remove('is-open');
+    document.body.classList.remove('modal-open'); // Membuka kunci scroll
   }
 }
 
+// --- 3. JAM REALTIME ---
 function updateClock() {
   const clockElement = document.getElementById("currentDateTime") || document.getElementById("realtime-clock");
   if (!clockElement) return;
@@ -190,12 +199,40 @@ function updateClock() {
   clockElement.textContent = `${dayName}, ${date} ${monthName} ${year} • ${time} WIB`;
 }
 
+// --- 4. PEMBATASAN NAVIGASI LINK (NON-AKTIFKAN SELAIN SEJARAH & BERITA) ---
+function initDisabledNavigation() {
+  const navLinks = document.querySelectorAll(".main-menu a, .dropdown-popup a");
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    const isSejarah = href && href.includes("sejarah-desa");
+    const isBerita = href && href.includes("berita-desa");
+
+    // Jika bukan link ke Sejarah atau Berita Desa, tahan aksi kliknya
+    if (!isSejarah && !isBerita) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // Mencegah routing/pindah halaman
+      });
+    }
+  });
+}
+
+// --- 5. INITIALIZATION & EVENT LISTENERS ---
 document.addEventListener('DOMContentLoaded', () => {
   renderCards(articles);
   updateClock();
   setInterval(updateClock, 1000);
+  initDisabledNavigation();
 
-  // Kontrol Navigasi Dropdown
+  // Menutup modal saat menekan tombol ESC
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+      closeNewsModal();
+    }
+  });
+
+  // Kontrol Navigasi Dropdown Hover
   const dropdownItems = document.querySelectorAll('.nav-dropdown-item');
 
   dropdownItems.forEach((item) => {

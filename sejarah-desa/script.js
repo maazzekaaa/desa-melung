@@ -1,6 +1,6 @@
 // Jam Real-time
 function updateRealtimeClock() {
-  const clockElement = document.getElementById('realtime-clock');
+  const clockElement = document.getElementById('realtime-clock') || document.getElementById('currentDateTime');
   if (!clockElement) return;
 
   const now = new Date();
@@ -19,10 +19,72 @@ function updateRealtimeClock() {
   clockElement.textContent = `${dayName}, ${dateNum} ${monthName} ${yearNum} • ${hours}:${minutes}:${seconds} WIB`;
 }
 
-// Logika Navigasi & Form
+// Fungsi Pembatasan Navigasi Link (Non-aktifkan selain Sejarah & Berita)
+function initDisabledNavigation() {
+  const navLinks = document.querySelectorAll(".main-menu a, .dropdown-popup a");
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    const isSejarah = href && href.includes("sejarah-desa");
+    const isBerita = href && href.includes("berita-desa");
+
+    // Jika bukan link ke Sejarah atau Berita Desa, cegah fungsi pindah halaman
+    if (!isSejarah && !isBerita) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // Mencegah routing
+      });
+    }
+  });
+}
+
+// Fungsi Pembuka & Penutup Pop-Up Modal (Ditengah Layar & Lock Scroll)
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add("is-open");
+    document.body.classList.add("modal-open"); // Kunci scroll layar belakang
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove("is-open");
+    document.body.classList.remove("modal-open"); // Buka kunci scroll
+  }
+}
+
+function closeAllModals() {
+  const openModals = document.querySelectorAll(".article-modal-backdrop.is-open");
+  openModals.forEach((modal) => {
+    modal.classList.remove("is-open");
+  });
+  document.body.classList.remove("modal-open");
+}
+
+// Logika Utama Halaman
 document.addEventListener('DOMContentLoaded', () => {
   updateRealtimeClock();
   setInterval(updateRealtimeClock, 1000);
+  initDisabledNavigation();
+
+  // Menutup Modal saat Menekan Tombol ESC
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+      closeAllModals();
+    }
+  });
+
+  // Menutup Modal saat Klik di Luar Kontainer (Backdrop Area)
+  const backdrops = document.querySelectorAll(".article-modal-backdrop");
+  backdrops.forEach((backdrop) => {
+    backdrop.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeAllModals();
+      }
+    });
+  });
 
   // Navigasi Dropdown Hover & Click Handler
   const dropdownItems = document.querySelectorAll('.nav-dropdown-item');
@@ -77,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Tombol Scroll ke Atas
-  const scrollTopBtn = document.querySelector('.scroll-top');
+  const scrollTopBtn = document.querySelector('.scroll-top') || document.getElementById('backToTop');
   if (scrollTopBtn) {
     window.addEventListener('scroll', () => {
       scrollTopBtn.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
